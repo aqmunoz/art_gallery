@@ -1,0 +1,36 @@
+2020-12-01T13:23:49+00:00 ERROR Error getting remote inbox notification data feed
+2020-12-01T13:23:49+00:00 ERROR WP_Error Object
+(
+    [errors] => Array
+        (
+            [http_request_failed] => Array
+                (
+                    [0] => cURL error 56: Received HTTP code 407 from proxy after CONNECT
+                )
+
+        )
+
+    [error_data] => Array
+        (
+        )
+
+)
+
+2020-12-01T13:27:30+00:00 ERROR Error getting remote inbox notification data feed
+2020-12-01T13:27:30+00:00 ERROR WP_Error Object
+(
+    [errors] => Array
+        (
+            [http_request_failed] => Array
+                (
+                    [0] => cURL error 56: Received HTTP code 407 from proxy after CONNECT
+                )
+
+        )
+
+    [error_data] => Array
+        (
+        )
+
+)
+
