@@ -18,6 +18,15 @@ class Personal_Appraise extends WP_List_Table
 
     }
 
+    protected function get_views() {
+        $status_links = array(
+            "all"       => __("<a href=?page=gc_personal_appraise_list_menu>All</a>",'gc_appraise_artwork'),
+            "appraised" => __("<a href=?page=gc_personal_appraise_list_menu&filt=yes>Appraised</a>",'gc_appraise_artwork'),
+            "unrated"   => __("<a href=?page=gc_personal_appraise_list_menu&filt=not>Unrated</a>",'gc_appraise_artwork')
+        );
+        return $status_links;
+    }
+
     /**
      * Retrieve appraise’s data from the database
      *
@@ -26,17 +35,51 @@ class Personal_Appraise extends WP_List_Table
      *
      * @return mixed
      */
-    public static function get_appraises( $per_page = 5, $page_number = 1, $idUser ) {
+    public static function get_appraises( $per_page = 5, $page_number = 1, $idUser,$search = '',$filter = '' ) {
 
         global $wpdb;
         $appraise_table = 'gc_appraise_artwork';
+        $where = '';
+        if($search != ''){
+            $search = strtolower($search);
+            $where = " AND lower(name_artwork) LIKE '%$search%' OR lower(theme_artwork) LIKE '%$search%' OR lower(author_name) LIKE '%$search%' ";
+        }
+        $sql = "SELECT *, 
+                    (SELECT                    
+                        wp_posts.post_title
+                    FROM
+                        wp_posts
+                    INNER JOIN wp_term_relationships ON (
+                        wp_posts.ID = wp_term_relationships.object_id
+                    )
+                    INNER JOIN wp_term_taxonomy ON (wp_term_taxonomy.term_taxonomy_id = wp_term_relationships.term_taxonomy_id)
+                    INNER JOIN wp_terms ON (wp_term_taxonomy.term_id = wp_terms.term_id)
+                    WHERE
+                        wp_terms.`name` = 'Technique' AND wp_posts.id = $appraise_table.id_technique) as technique,
+                    (SELECT                    
+                        wp_posts.post_title
+                    FROM
+                        wp_posts
+                    INNER JOIN wp_term_relationships ON (
+                        wp_posts.ID = wp_term_relationships.object_id
+                    )
+                    INNER JOIN wp_term_taxonomy ON (wp_term_taxonomy.term_taxonomy_id = wp_term_relationships.term_taxonomy_id)
+                    INNER JOIN wp_terms ON (wp_term_taxonomy.term_id = wp_terms.term_id)
+                    WHERE
+                        wp_terms.`name` = 'Material' AND wp_posts.id = $appraise_table.id_material) as material 
+                FROM $appraise_table WHERE id_user=$idUser";
 
-        $sql = "SELECT *, (SELECT val FROM gc_appraise_nomen WHERE id = $appraise_table.id_technique AND typ = 'technique') as technique, (SELECT val FROM gc_appraise_nomen WHERE id = $appraise_table.id_material AND typ = 'material') as material FROM $appraise_table WHERE id_user=$idUser";
-
+        if($filter=='')
+            $sql .= $where;
+        else{
+            $where = self::getFilterStructure($filter);
+            $sql .= $where;
+        }
         if ( ! empty( $_REQUEST['orderby'] ) ) {
             $sql .= ' ORDER BY ' . esc_sql( $_REQUEST['orderby'] );
             $sql .= ! empty( $_REQUEST['order'] ) ? ' ' . esc_sql( $_REQUEST['order'] ) : ' ASC';
         }
+
 
         $sql .= " LIMIT $per_page";
 
@@ -48,13 +91,51 @@ class Personal_Appraise extends WP_List_Table
         return $result;
     }
 
+    public static function getFilterStructure($filter){
+        switch ($filter){
+            case 'yes':
+                $where = " AND document != '' ";
+                break;
+            case 'not':
+                $where = " AND id IS NOT NULL AND (document = '' OR document IS NULL)";
+                break;
+            default:
+                $where = '';
+                break;
+        }
+        return $where;
+    }
+
 
     public static function get_appraise( $appraiseId) {
 
         global $wpdb;
         $appraise_table = 'gc_appraise_artwork';
 
-        $sql = "SELECT *, (SELECT val FROM gc_appraise_nomen WHERE id = $appraise_table.id_technique AND typ = 'technique') as technique, (SELECT val FROM gc_appraise_nomen WHERE id = $appraise_table.id_material AND typ = 'material') as material FROM $appraise_table WHERE id = $appraiseId";
+        $sql = "SELECT *, 
+        (SELECT                    
+            wp_posts.post_title
+        FROM
+            wp_posts
+        INNER JOIN wp_term_relationships ON (
+            wp_posts.ID = wp_term_relationships.object_id
+        )
+        INNER JOIN wp_term_taxonomy ON (wp_term_taxonomy.term_taxonomy_id = wp_term_relationships.term_taxonomy_id)
+        INNER JOIN wp_terms ON (wp_term_taxonomy.term_id = wp_terms.term_id)
+        WHERE
+            wp_terms.`name` = 'Technique' AND wp_posts.id = $appraise_table.id_technique) as technique, 
+        (SELECT                    
+            wp_posts.post_title
+        FROM
+            wp_posts
+        INNER JOIN wp_term_relationships ON (
+            wp_posts.ID = wp_term_relationships.object_id
+        )
+        INNER JOIN wp_term_taxonomy ON (wp_term_taxonomy.term_taxonomy_id = wp_term_relationships.term_taxonomy_id)
+        INNER JOIN wp_terms ON (wp_term_taxonomy.term_id = wp_terms.term_id)
+        WHERE
+            wp_terms.`name` = 'Material' AND wp_posts.id = $appraise_table.id_material) as material 
+        FROM $appraise_table WHERE id = $appraiseId";
         $result = $wpdb->get_results( $sql, 'ARRAY_A' );
 
         return $result;
@@ -67,8 +148,12 @@ class Personal_Appraise extends WP_List_Table
      */
     public static function record_count($idUser) {
         global $wpdb;
-
-        $sql = "SELECT COUNT(*) FROM gc_appraise_artwork WHERE id_user=$idUser";
+        $where = '';
+        if(isset($_REQUEST['filt']) && $_REQUEST['filt'] != '') {
+            $filter = $_REQUEST['filt'];
+            $where = self::getFilterStructure($filter);
+        }
+        $sql = "SELECT COUNT(*) FROM gc_appraise_artwork WHERE id_user=$idUser".$where;
 
         return $wpdb->get_var( $sql );
     }
@@ -168,8 +253,15 @@ class Personal_Appraise extends WP_List_Table
             'per_page'    => $per_page //WE have to determine how many items to show on a page
         ) );
 
-
-        $this->items = self::get_appraises( $per_page, $current_page,$idUser );
+        $search = '';
+        $filter = '';
+        if(isset($_REQUEST['s'])){
+            $search = $_REQUEST['s'];
+        }
+        if(isset($_REQUEST['filt'])){
+            $filter = $_REQUEST['filt'];
+        }
+        $this->items = self::get_appraises( $per_page, $current_page,$idUser,$search,$filter );
     }
 
     public function process_show_action()
@@ -223,11 +315,12 @@ class Personal_Appraise extends WP_List_Table
         if($document == '' || $document == null){
             $link = '<label style="color:#72777c;">Download</label>';
         }
+        $page = 'gc_personal_appraise_list_menu';
         $actions = [
-            'show' => sprintf( '<a href="?page=%s&action=%s&appraise=%s&_wpnonce=%s">Show</a>', esc_attr( $_REQUEST['page'] ), 'show', absint( $item['id'] ), $show_nonce ),
+            'show' => sprintf( '<a href="?page=%s&action=%s&appraise=%s&_wpnonce=%s">Show</a>', esc_attr( $page ), 'show', absint( $item['id'] ), $show_nonce ),
             'download' => $link
         ];
-
+        
         return $title. $this->row_actions( $actions );
     }
 }

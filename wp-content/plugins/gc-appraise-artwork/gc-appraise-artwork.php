@@ -11,8 +11,15 @@ function gc_appraise_admin_scripts() {
     // Load bootstrap JS
     wp_enqueue_script('bootstrap_js', plugins_url('js/bootstrap.min.js', __FILE__));
     wp_enqueue_script('appraise_artwork_js', plugins_url('js/gc_appraise_js.js', __FILE__));
-    // Load bootstrap CSS
     wp_enqueue_style('bootstrap_css', plugins_url('css/bootstrap.min.css', __FILE__));
+    // Load bootstrap CSS
+    wp_enqueue_style('appraise_artwork_css', plugins_url('css/style.css', __FILE__));
+
+    wp_localize_script(
+        'appraise_artwork_js',
+        'appraise_artwork_ajax_obj',
+        array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) )
+    );
 }
 add_action( 'admin_enqueue_scripts', 'gc_appraise_admin_scripts' );
 // Create table on database
@@ -30,11 +37,12 @@ function gc_appraise_artwork_init()
     // Create the table if not exist only
     // Table's name
     $appraise_table = 'gc_appraise_artwork';
-    $appraise_table_nomen = 'gc_appraise_nomen';
+    $posts_table = $wpdb->prefix.'posts';
+    //$appraise_table_nomen = 'gc_appraise_nomen';
     $charset_collate = $wpdb->get_charset_collate();
     // Prepare the query
 
-    $query_nomen = "CREATE TABLE IF NOT EXISTS $appraise_table_nomen (
+    /*$query_nomen = "CREATE TABLE IF NOT EXISTS $appraise_table_nomen (
         id mediumint(9) NOT NULL AUTO_INCREMENT,
         typ varchar(50) NOT NULL,
         val varchar(500) NOT NULL,        
@@ -42,14 +50,14 @@ function gc_appraise_artwork_init()
         ) $charset_collate;";
     // La funcion dbDelta permite crear tablas de manera segura se
     // define en el archivo upgrade.php que se incluye a continuacion
-    dbDelta($query_nomen); // Lanza la consulta para crear la tabla de manera segura
+    dbDelta($query_nomen); // Lanza la consulta para crear la tabla de manera segura*/
 
     $query = "CREATE TABLE IF NOT EXISTS $appraise_table (
-        id mediumint(9) NOT NULL AUTO_INCREMENT,
+        id bigint(20) NOT NULL AUTO_INCREMENT,
         name_artwork varchar(255) NOT NULL,
         theme_artwork varchar(255) NOT NULL,
-        id_material mediumint(9) NOT NULL,
-        id_technique mediumint(9) NOT NULL,
+        id_material bigint(20) NOT NULL,
+        id_technique bigint(20) NOT NULL,
         large double NOT NULL,        
         width double NOT NULL,
         height double NOT NULL,
@@ -62,9 +70,9 @@ function gc_appraise_artwork_init()
         INDEX material_idx(id_material),
         INDEX tecnique_idx(id_technique),
         FOREIGN KEY (id_material)
-            REFERENCES gc_appraise_nomen(id),
+            REFERENCES wp_posts(id),
         FOREIGN KEY (id_technique)
-            REFERENCES gc_appraise_nomen(id)        
+            REFERENCES  wp_posts(id)        
         ) $charset_collate;";
     dbDelta($query); // Lanza la consulta para crear la tabla de manera segura
 
@@ -75,11 +83,12 @@ function delete_plugin_database_table(){
 	if( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) exit();
     global $wpdb;
     $appraise_table = 'gc_appraise_artwork';
-    $appraise_table_nomen = 'gc_appraise_nomen';
+    //$appraise_table_nomen = 'gc_appraise_nomen';
     $wpdb->query( "DROP TABLE IF EXISTS $appraise_table" );
-    $wpdb->query( "DROP TABLE IF EXISTS $appraise_table_nomen" );
+    //$wpdb->query( "DROP TABLE IF EXISTS $appraise_table_nomen" );
     delete_option("my_plugin_db_version");
 }
 register_uninstall_hook(__FILE__, 'delete_plugin_database_table');
 
 require_once plugin_dir_path(__FILE__) . 'includes/gc-appraise-functions.php';
+require_once plugin_dir_path(__FILE__) . 'includes/personal-appraises-list.php';

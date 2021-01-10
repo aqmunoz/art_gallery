@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/woocommerce-pay-per-post/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/woocommerce-pay-per-post/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/woocommerce-pay-per-post/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/woocommerce-pay-per-post/vendor/kylekatarnls/update-helper" />
+      <path value="$PROJECT_DIR$/woocommerce-pay-per-post/vendor/composer" />
+      <path value="$PROJECT_DIR$/woocommerce-pay-per-post/vendor/freemius/wordpress-sdk" />
+      <path value="$PROJECT_DIR$/woocommerce-pay-per-post/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/woocommerce-pay-per-post/vendor/monolog/monolog" />
+    </include_path>
+  </component>
+</project>

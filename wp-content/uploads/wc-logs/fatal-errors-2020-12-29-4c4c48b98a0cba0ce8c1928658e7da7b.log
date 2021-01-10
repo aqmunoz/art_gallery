@@ -1,0 +1,49 @@
+2020-12-29T22:28:14+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function load_nomen_form(), 1 passed in C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php on line 289 and exactly 2 expected in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php:11
+Stack trace:
+#0 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(289): load_nomen_form('http://localhos...')
+#1 C:\xampp\htdocs\galeria_arte\wp-includes\plugin.php(206): WP_Hook->apply_filters('http://localhos...', Array)
+#2 C:\xampp\htdocs\galeria_arte\wp-includes\link-template.php(3338): apply_filters('admin_url', 'http://localhos...', 'upload.php', NULL)
+#3 C:\xampp\htdocs\galeria_arte\wp-includes\link-template.php(3307): get_admin_url(NULL, 'upload.php', 'admin')
+#4 C:\xampp\htdocs\galeria_arte\wp-includes\widgets\class-wp-widget-media.php(77): admin_url('upload.php')
+#5 C:\xampp\htdocs\galeria_arte\wp-includes\widgets\class-wp-widget-media-audio.php(31): WP_Widget_Media->__construct('media_audio', 'Audio', Arra in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php on line 11
+
+2020-12-29T22:28:15+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function load_nomen_form(), 1 passed in C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php on line 289 and exactly 2 expected in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php:11
+Stack trace:
+#0 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(289): load_nomen_form('http://localhos...')
+#1 C:\xampp\htdocs\galeria_arte\wp-includes\plugin.php(206): WP_Hook->apply_filters('http://localhos...', Array)
+#2 C:\xampp\htdocs\galeria_arte\wp-includes\link-template.php(3338): apply_filters('admin_url', 'http://localhos...', 'upload.php', NULL)
+#3 C:\xampp\htdocs\galeria_arte\wp-includes\link-template.php(3307): get_admin_url(NULL, 'upload.php', 'admin')
+#4 C:\xampp\htdocs\galeria_arte\wp-includes\widgets\class-wp-widget-media.php(77): admin_url('upload.php')
+#5 C:\xampp\htdocs\galeria_arte\wp-includes\widgets\class-wp-widget-media-audio.php(31): WP_Widget_Media->__construct('media_audio', 'Audio', Arra in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php on line 11
+
+2020-12-29T22:35:47+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function load_nomen_form(), 1 passed in C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php on line 287 and exactly 2 expected in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php:11
+Stack trace:
+#0 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(287): load_nomen_form('')
+#1 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters(NULL, Array)
+#2 C:\xampp\htdocs\galeria_arte\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\galeria_arte\wp-admin\includes\menu.php(155): do_action('admin_menu', '')
+#4 C:\xampp\htdocs\galeria_arte\wp-admin\menu.php(327): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\galeria_arte\wp-admin\admin.php(158): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php on line 11
+
+2020-12-29T22:36:31+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function load_nomen_form(), 1 passed in C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php on line 287 and exactly 3 expected in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php:11
+Stack trace:
+#0 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(287): load_nomen_form('')
+#1 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters(NULL, Array)
+#2 C:\xampp\htdocs\galeria_arte\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\galeria_arte\wp-admin\includes\menu.php(155): do_action('admin_menu', '')
+#4 C:\xampp\htdocs\galeria_arte\wp-admin\menu.php(327): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\galeria_arte\wp-admin\admin.php(158): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php on line 11
+
+2020-12-29T23:06:28+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function load_nomen_form(), 1 passed in C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php on line 289 and exactly 2 expected in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php:11
+Stack trace:
+#0 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(289): load_nomen_form('http://localhos...')
+#1 C:\xampp\htdocs\galeria_arte\wp-includes\plugin.php(206): WP_Hook->apply_filters('http://localhos...', Array)
+#2 C:\xampp\htdocs\galeria_arte\wp-includes\link-template.php(3338): apply_filters('admin_url', 'http://localhos...', 'upload.php', NULL)
+#3 C:\xampp\htdocs\galeria_arte\wp-includes\link-template.php(3307): get_admin_url(NULL, 'upload.php', 'admin')
+#4 C:\xampp\htdocs\galeria_arte\wp-includes\widgets\class-wp-widget-media.php(77): admin_url('upload.php')
+#5 C:\xampp\htdocs\galeria_arte\wp-includes\widgets\class-wp-widget-media-audio.php(31): WP_Widget_Media->__construct('media_audio', 'Audio', Arra in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php on line 11
+

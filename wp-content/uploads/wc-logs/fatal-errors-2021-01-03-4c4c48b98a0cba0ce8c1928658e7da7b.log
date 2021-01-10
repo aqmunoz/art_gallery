@@ -1,0 +1,63 @@
+2021-01-03T16:57:14+00:00 CRITICAL Uncaught Error: Call to undefined function get_query_arg() in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php:97
+Stack trace:
+#0 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(287): Gc_nomen_type_form('')
+#1 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\galeria_arte\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\galeria_arte\wp-admin\admin.php(259): do_action('nomen-types_pag...')
+#4 {main}
+  thrown in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php on line 97
+
+2021-01-03T17:14:49+00:00 CRITICAL Uncaught Error: Call to undefined function get_query_arg() in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php:104
+Stack trace:
+#0 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(287): Gc_nomen_type_form('')
+#1 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\galeria_arte\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\galeria_arte\wp-admin\admin.php(259): do_action('nomen-types_pag...')
+#4 {main}
+  thrown in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php on line 104
+
+2021-01-03T17:16:42+00:00 CRITICAL Uncaught Error: Call to undefined function get_query_arg() in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php:105
+Stack trace:
+#0 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(287): Gc_nomen_type_form('')
+#1 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\galeria_arte\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\galeria_arte\wp-admin\admin.php(259): do_action('nomen-types_pag...')
+#4 {main}
+  thrown in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php on line 105
+
+2021-01-03T18:03:27+00:00 CRITICAL Uncaught Error: Array callback has to contain indices 0 and 1 in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php:105
+Stack trace:
+#0 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(287): Gc_nomen_type_form('')
+#1 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\galeria_arte\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\galeria_arte\wp-admin\admin.php(259): do_action('nomen-types_pag...')
+#4 {main}
+  thrown in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php on line 105
+
+2021-01-03T18:04:46+00:00 CRITICAL Uncaught Error: Function name must be a string in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php:105
+Stack trace:
+#0 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(287): Gc_nomen_type_form('')
+#1 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\galeria_arte\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\galeria_arte\wp-admin\admin.php(259): do_action('nomen-types_pag...')
+#4 {main}
+  thrown in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php on line 105
+
+2021-01-03T18:05:39+00:00 CRITICAL Uncaught Error: Function name must be a string in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php:105
+Stack trace:
+#0 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(287): Gc_nomen_type_form('')
+#1 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\galeria_arte\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\galeria_arte\wp-admin\admin.php(259): do_action('nomen-types_pag...')
+#4 {main}
+  thrown in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php on line 105
+
+2021-01-03T18:38:36+00:00 CRITICAL Uncaught Error: Function name must be a string in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php:105
+Stack trace:
+#0 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(287): Gc_nomen_type_form('')
+#1 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\galeria_arte\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\galeria_arte\wp-admin\admin.php(259): do_action('nomen-types_pag...')
+#4 {main}
+  thrown in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php on line 105
+

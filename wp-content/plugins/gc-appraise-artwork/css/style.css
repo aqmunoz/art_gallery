@@ -26,3 +26,7 @@ p.error {
     border: 2px solid red;
     background: #ff8787;
 }
+
+button.toggle-row{
+    display: none !important;
+}

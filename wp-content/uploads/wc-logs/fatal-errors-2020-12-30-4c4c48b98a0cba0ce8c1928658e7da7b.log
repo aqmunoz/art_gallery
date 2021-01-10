@@ -1,0 +1,21 @@
+2020-12-30T04:39:43+00:00 CRITICAL Cannot declare class Message, because the name is already in use in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\messages\messages.php on line 2
+
+2020-12-30T05:16:23+00:00 CRITICAL Uncaught Error: Call to a member function showMessages() on null in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php:113
+Stack trace:
+#0 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(287): Gc_nomen_type_form('')
+#1 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\galeria_arte\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\galeria_arte\wp-admin\admin.php(259): do_action('nomen-types_pag...')
+#4 {main}
+  thrown in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php on line 113
+
+2020-12-30T05:19:39+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function wp_redirect(), 0 passed in C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php on line 116 and at least 1 expected in C:\xampp\htdocs\galeria_arte\wp-includes\pluggable.php:1246
+Stack trace:
+#0 C:\xampp\htdocs\galeria_arte\wp-content\plugins\gc-type-nomen\includes\gc-nomen-type-functions.php(116): wp_redirect()
+#1 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(287): Gc_nomen_type_form('')
+#2 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#3 C:\xampp\htdocs\galeria_arte\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#4 C:\xampp\htdocs\galeria_arte\wp-admin\admin.php(259): do_action('nomen-types_pag...')
+#5 {main}
+  thrown in C:\xampp\htdocs\galeria_arte\wp-includes\pluggable.php on line 1246
+

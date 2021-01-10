@@ -1,0 +1,11 @@
+2020-12-27T22:47:50+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Error as array in C:\xampp\htdocs\galeria_arte\wp-content\plugins\ninja-forms\ninja-forms.php:1294
+Stack trace:
+#0 C:\xampp\htdocs\galeria_arte\wp-content\plugins\ninja-forms\ninja-forms.php(1048): nf_update_marketing_feed()
+#1 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(287): Ninja_Forms->activation(false)
+#2 C:\xampp\htdocs\galeria_arte\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#3 C:\xampp\htdocs\galeria_arte\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#4 C:\xampp\htdocs\galeria_arte\wp-admin\includes\plugin.php(699): do_action('activate_ninja-...', false)
+#5 C:\xampp\htdocs\galeria_arte\wp-admin\plugins.php(58): activate_plugin('ninja-forms/nin...', 'http://localhos...', false)
+#6 {main}
+  thrown in C:\xampp\htdocs\galeria_arte\wp-content\plugins\ninja-forms\ninja-forms.php on line 1294
+
